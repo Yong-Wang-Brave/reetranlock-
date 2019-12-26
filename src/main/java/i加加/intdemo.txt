@@ -1,0 +1,45 @@
+﻿Compiled from "intdemo.java"
+public class i加加.intdemo {
+  public i加加.intdemo();
+    Code:
+
+       0: aload_0             从局部变量0中装载引用类型值
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V  根据编译时类型来调用实例方法
+       4: return                从方法中返回，返回值为void
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #2                  // class i加加/intdemo   创建类实便
+       3: dup                                  复制栈顶部一个字长内容
+       4: invokespecial #3                  // Method "<init>":()V   根据编译时类型来调用实例方法
+       7: astore_1                      将引用类型或returnAddress类型值存入局部变量1
+       8: iconst_0                       将int类型常量0压入栈
+       9: istore_2                      将int类型值存入局部变量2
+      10: aload_1                       从局部变量1中装载引用类型值
+      11: iload_2                           从局部变量2中装载int类型值
+      12: invokevirtual #4                  // Method add:(I)V  调度对象的实便方法
+      15: iload_2                             从局部变量2中装载int类型值
+      16: iinc          2, 1                    把一个常量值加到一个int类型的局部变量上   现在i=1
+      19: istore_2                              将int类型值存入局部变量2                
+      20: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;  从类中获取静态字段
+      23: iload_2                         
+      24: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V  调度对象的实便方法
+      27: return
+
+  void add(int);
+    Code:
+       0: iinc          1, 1    把一个常量值加到一个int类型的局部变量上
+       3: return
+}
+
+        public static void main(String args[]){
+            intdemo inc = new intdemo ();      //引用类型存入局部变量1
+            int i = 0;      // 将int类型常量0压入栈,并存入局部变量2
+            inc.add(i);   //从局部变量1中装载引用类型值
+            i = i++;        //将int类型值存入局部变量2        int类型值应该是  i=0    从局部变量2中装载int类型值   把0取出来。
+            System.out.println(i);
+        }
+        void add(int i){
+            i++;   // 从局部变量2中装载int类型值,常量值1加到一个int类型的局部变量2
+        }
+    }
